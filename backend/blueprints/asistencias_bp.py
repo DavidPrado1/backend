@@ -13,22 +13,22 @@ asistencia_blueprint = Blueprint('asistencia_blueprint', __name__)
 
 @asistencia_blueprint.route('/asistencia', methods=['PUT'])
 @cross_origin()
-def create_asistencia():
+def create_asistencia(): #Registrar asistencia
     content = model.create_asistencia(request.json['clase'], request.json['estudiante'])   
     return jsonify(content)
 
 @asistencia_blueprint.route('/asistencia', methods=['DELETE'])
 @cross_origin()
-def delete_task():
+def delete_task(): #Eliminar asistencia
     return jsonify(model.delete_asistencia(request.json['clase'],request.json['estudiante']))
 
 @asistencia_blueprint.route('/asistencia', methods=['POST'])
 @cross_origin()
-def task():
+def task(): #Cargar asistencias de una clase/sesion segun el estudiante
     return jsonify(model.get_asistencia(request.json['clase'],request.json['estudiante']))
 
 @asistencia_blueprint.route('/asistencias', methods=['POST'])
 @cross_origin()
-def tasks():
+def tasks(): #Cargar todas las asistencias de una clase/sesion
     return jsonify(model.get_asistencias(request.json['clase']))
 

@@ -13,27 +13,21 @@ clase_blueprint = Blueprint('clase_blueprint', __name__)
 
 @clase_blueprint.route('/clase', methods=['PUT'])
 @cross_origin()
-def create_clase():
+def create_clase(): #Crear una clase/sesion de un curso
     content = model.create_clase(request.json['id'], request.json['curso'], request.json['fecha'],request.json['hora_inicio'],request.json['hora_fin'],request.json['lugar'])   
-    return jsonify(content)
-
-@clase_blueprint.route('/clase', methods=['PATCH'])
-@cross_origin()
-def update_clase():
-    content = model.update_clase(request.json['id'], request.json['curso'], request.json['fecha'],request.json['lugar'])   
     return jsonify(content)
 
 @clase_blueprint.route('/clase', methods=['DELETE'])
 @cross_origin()
-def delete_task():
+def delete_task(): #Eliminar una clase/sesion de un curso
     return jsonify(model.delete_clase(request.json['id']))
 
 @clase_blueprint.route('/clase', methods=['POST'])
 @cross_origin()
-def task():
+def task(): #Cargar los datos de una clase/sesion
     return jsonify(model.get_clase(request.json['id']))
 
 @clase_blueprint.route('/clases', methods=['POST'])
 @cross_origin()
-def tasks():
+def tasks(): #Cargar todas las clases/sesiones
     return jsonify(model.get_clases())

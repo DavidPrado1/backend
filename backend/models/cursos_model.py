@@ -15,7 +15,7 @@ class CursoModel:
             content = {}
         return data
 
-    def get_cursosnames(self):  
+    def get_cursosnames(self):  #Obtiene todos los nombres (son primary key) de la tabla curso
         rv = self.con_pool.execute("SELECT nombreCurso from cursos")  
         data = []
         for result in rv:

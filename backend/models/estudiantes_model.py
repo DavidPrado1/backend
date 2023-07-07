@@ -17,7 +17,7 @@ class EstudianteModel:
             content = {}
         return data[0]
     
-    def get_estudiante_asistencia(self, dni):    
+    def get_estudiante_asistencia(self, dni):  #Devuelve registros entre estudiante y clase/sesion en la fecha y hora actual
         now = datetime.now()
         print(str(now.strftime("%H:%M")))
         params = {'dni' : dni,
@@ -35,7 +35,7 @@ class EstudianteModel:
             content = {}
         return data
     
-    def get_estudiante_horario(self, dni,semestre):    
+    def get_estudiante_horario(self, dni,semestre):  #Obtiene el horario de un estudiante segun el semestre  
         params = {'dni' : dni,
                   'semestre': semestre                  
                   }

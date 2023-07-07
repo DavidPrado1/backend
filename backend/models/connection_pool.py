@@ -62,8 +62,8 @@ class MySQLPool(object):
 
 if __name__ == "__main__":
     mysql_pool = MySQLPool()
-    sql = "select * from estudiantes"        
+    '''sql = "select * from estudiantes"        
     rv = mysql_pool.execute(sql)
     for result in rv:
         print(result)
-    print("done")
+    print("done")'''

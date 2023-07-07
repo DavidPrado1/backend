@@ -14,7 +14,7 @@ participacion_blueprint = Blueprint('participacion_blueprint', __name__)
 
 @participacion_blueprint.route('/create_participacion', methods=['PUT'])
 @cross_origin()
-def create_participacion():
+def create_participacion(): #Crea una participacion en una clase/sesion
     content = model.create_participacion(request.json['clase'], request.json['estudiante'])    
     return jsonify(content)
 
@@ -26,17 +26,17 @@ def task():
 
 @participacion_blueprint.route('/participaciones', methods=['POST'])
 @cross_origin()
-def tasks():
+def tasks(): #Carga todos los registros de participaciones en una clase/sesion
     return jsonify(model.get_participaciones(request.json['clase']))
 
 @participacion_blueprint.route('/sum_participacion', methods=['PATCH'])
 @cross_origin()
-def sum():
+def sum(): #Aumenta una participacion a un estudiante en una clase/sesion
     content = model.sum_participacion(request.json['clase'],request.json['estudiante'])  
     return jsonify(content)
 
 @participacion_blueprint.route('/res_participacion', methods=['PATCH'])
 @cross_origin()
-def res():
+def res(): #Disminuye una participacion a un estudiante en una clase/sesion
     content = model.res_participacion(request.json['clase'],request.json['estudiante'])  
     return jsonify(content)
