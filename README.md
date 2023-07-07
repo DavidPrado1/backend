@@ -1,6 +1,6 @@
 # Computación Distribuida - Clúster
 
-##Pasos para desplegar la aplicacion:
+## Pasos para desplegar la aplicacion:
                 
 ----
 Crear una Base de Datos MySQL con el siguiente script:
@@ -157,7 +157,7 @@ ALTER TABLE estudiantesAbandono ADD FOREIGN KEY (estudiante) REFERENCES estudian
 ```
 
 
-##Librerias Necesarias:
+## Librerias Necesarias:
                 
 ----
 `Flask`
@@ -173,7 +173,7 @@ ALTER TABLE estudiantesAbandono ADD FOREIGN KEY (estudiante) REFERENCES estudian
                 
 ----
 
-##Configuración del archivo de inicialización:
+## Configuración del archivo de inicialización:
                 
 ----
 Crear un archivo .ini para la configuracion de parametros de conexion en la base de datos  del connection pool de la aplicacion.
