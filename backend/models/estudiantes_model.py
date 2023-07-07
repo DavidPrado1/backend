@@ -34,7 +34,23 @@ class EstudianteModel:
             data.append(content)
             content = {}
         return data
+    
+    def get_estudiante_horario(self, dni,semestre):    
+        params = {'dni' : dni,
+                  'semestre': semestre                  
+                  }
 
+        rv = self.con_pool.execute("select c2.curso,c.fecha,c.hora_inicio,c.hora_fin  from clases c inner join cursosdesemestre c2 on c.curso = c2.id inner join estudiantescursos e on e.id = c2.id where estudiante = %(dni)s and semestre = %(semestre)s",params)                
+        
+        data = []
+        content = {}
+        for result in rv:
+            content = {'name': result[0],'start':result[1] + ' ' + result[2],'end':result[1] + ' ' + result[3]}
+            data.append(content)
+            content = {}
+        return data
+
+ 
     
 
     def get_estudiantes(self):  

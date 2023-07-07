@@ -31,3 +31,4 @@ def task():
 @cross_origin()
 def tasks():
     return jsonify(model.get_asistencias(request.json['clase']))
+

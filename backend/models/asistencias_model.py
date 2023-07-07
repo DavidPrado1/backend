@@ -25,6 +25,8 @@ class AsistenciaModel:
             data.append(content)
             content = {}
         return data
+    
+
 
     def create_asistencia(self, clase, estudiante):    
         data = {

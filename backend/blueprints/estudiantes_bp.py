@@ -40,6 +40,11 @@ def task():
 def asistencia():
     return jsonify(model.get_estudiante_asistencia(request.json['dni']))
 
+@estudiante_blueprint.route('/estudiante_horario', methods=['POST'])
+@cross_origin()
+def horario():
+    return jsonify(model.get_estudiante_horario(request.json['dni'],request.json['semestre']))
+
 @estudiante_blueprint.route('/estudiantes', methods=['POST'])
 @cross_origin()
 def tasks():

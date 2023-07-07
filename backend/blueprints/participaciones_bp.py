@@ -12,10 +12,10 @@ model = ParticipacionModel()
 participacion_blueprint = Blueprint('participacion_blueprint', __name__)
 
 
-@participacion_blueprint.route('/participacion', methods=['PUT'])
+@participacion_blueprint.route('/create_participacion', methods=['PUT'])
 @cross_origin()
 def create_participacion():
-    content = model.create_participacion(request.json['num'], request.json['estudiante'], request.json['clase'])    
+    content = model.create_participacion(request.json['clase'], request.json['estudiante'])    
     return jsonify(content)
 
 
@@ -28,3 +28,15 @@ def task():
 @cross_origin()
 def tasks():
     return jsonify(model.get_participaciones(request.json['clase']))
+
+@participacion_blueprint.route('/sum_participacion', methods=['PATCH'])
+@cross_origin()
+def sum():
+    content = model.sum_participacion(request.json['clase'],request.json['estudiante'])  
+    return jsonify(content)
+
+@participacion_blueprint.route('/res_participacion', methods=['PATCH'])
+@cross_origin()
+def res():
+    content = model.res_participacion(request.json['clase'],request.json['estudiante'])  
+    return jsonify(content)
